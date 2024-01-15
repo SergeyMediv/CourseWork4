@@ -10,7 +10,7 @@ load_dotenv()
 
 class API(ABC):
     @abstractmethod
-    def get_api_response(self) -> list[dict]:
+    def get_vacancies(self) -> list[dict]:
         pass
 
 
@@ -25,7 +25,7 @@ class HHApi(API):
             'search_field': 'name'
         }
 
-    def get_api_response(self) -> list[dict]:
+    def get_vacancies(self) -> list[dict]:
 
         response = requests.get(url=HH_URL, params=self.params).json()
         return response['items']
@@ -44,9 +44,13 @@ class SJApi(API):
             'count': 100
         }
 
-    def get_api_response(self) -> list[dict]:
+    def get_vacancies(self) -> list[dict]:
         headers = {
             'X-Api-App-Id': os.getenv('SJ_API_KEY')
         }
         response = requests.get(url=SJ_URL, params=self.params, headers=headers).json()
         return response['objects']
+
+
+# x = HHApi('python')
+# print(x.get_vacancies()[1])
