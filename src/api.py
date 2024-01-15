@@ -52,5 +52,7 @@ class SJApi(API):
         return response['objects']
 
 
-# x = HHApi('python')
-# print(x.get_vacancies()[1])
+x = SJApi('python')
+# for x, y in x.get_vacancies()[16].items():
+#     print(f'{x} - {y}')
+# print(x.get_vacancies()[0]['profession'])

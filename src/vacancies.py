@@ -4,10 +4,10 @@ class Vacancy:
             vacancy_name: str,
             salary_from: int,
             salary_to: int,
-            vacancy_skills: str,
-            vacancy_url: str,
             vacancy_currency: str,
-            vacancy_duties: str
+            vacancy_skills: str,
+            vacancy_duties: str,
+            vacancy_url: str
     ):
         self.vacancy_name = vacancy_name
         self.salary_from = self.validate_salary(salary_from)
