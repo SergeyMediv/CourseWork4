@@ -1,4 +1,6 @@
+from cfg import VACANCIES_JSON
 from src.api import HHApi, SJApi
+from src.engine import JSONSaver
 from src.utils import hh_vacancies_list, sj_vacancies_list
 
 
@@ -9,6 +11,9 @@ def main():
 
     hh_vacs = hh_vacancies_list(hh_api.get_vacancies())
     sj_vacs = sj_vacancies_list(super_job_api.get_vacancies())
+
+#    hh_json = JSONSaver(VACANCIES_JSON)
+#    hh_json.add_vacancies(sj_vacs + hh_vacs)
 
 #    print(sj_vacs[1].vacancy_name, sj_vacs[1].salary_repr, sj_vacs[1].vacancy_currency)
 #    print('----')
