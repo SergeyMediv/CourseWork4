@@ -14,7 +14,7 @@ class Vacancy:
         self.salary_to = self.validate_salary(salary_to)
         self.salary_repr = self.salary_representation(salary_from, salary_to)
         self.vacancy_currency = vacancy_currency
-        self.vacancy_skills = self.validate_skills(vacancy_skills)
+        self.vacancy_skills = vacancy_skills
         self.vacancy_duties = vacancy_duties
         self.vacancy_url = vacancy_url
 
