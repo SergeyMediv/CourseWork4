@@ -12,20 +12,22 @@ class Saver(ABC):
     def add_vacancies(self, vacancies) -> None:
         pass
 
-    @abstractmethod
-    def get_vacancies(self, query) -> list[dict]:
-        pass
-
     def del_vacancy(self, query) -> None:
         pass
 
 
 class JSONSaver(Saver):
 
-    def add_vacancies(self, vacancies: list[Vacancy]):
-        all_vacancies = [vacancy.to_json() for vacancy in vacancies]
+    @staticmethod
+    def currency_cut(vacancies: list[Vacancy]):
+        filtered_vacancies = []
+        for vacancy in vacancies:
+            if vacancy.vacancy_currency == 'RUR':
+                filtered_vacancies.append(vacancy)
+        return filtered_vacancies
+
+    def add_vacancies(self, vacancies):
+        all_vacancies = [vacancy.to_json() for vacancy in self.currency_cut(vacancies)]
         with open(self.path, 'w', encoding='utf-8') as file:
             json.dump(all_vacancies, file, indent=2, ensure_ascii=False)
 
-    def get_vacancies(self, query):
-        pass

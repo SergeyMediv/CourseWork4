@@ -50,9 +50,3 @@ class SJApi(API):
         }
         response = requests.get(url=SJ_URL, params=self.params, headers=headers).json()
         return response['objects']
-
-
-# x = HHApi('python')
-# for x, y in x.get_vacancies()[16].items():
-#     print(f'{x} - {y}')
-# print(x.get_vacancies()[0]['profession'])
