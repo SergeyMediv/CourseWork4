@@ -1,4 +1,5 @@
 class Vacancy:
+    """Класс, собирающий информацию с разных платформ и создающий унифицированный вариант вакансии для работы"""
     def __init__(
             self,
             vacancy_name: str,
@@ -55,6 +56,7 @@ class Vacancy:
 
 
 class HHVacancy(Vacancy):
+    """Добавляет поле платформы, с которой пришла вакансия"""
     def __init__(self, vacancy_name: str, salary_from: int, salary_to: int, vacancy_currency: str, vacancy_skills: str,
                  vacancy_duties: str, vacancy_url: str):
         super().__init__(vacancy_name, salary_from, salary_to, vacancy_currency, vacancy_skills, vacancy_duties,
@@ -71,6 +73,7 @@ class HHVacancy(Vacancy):
 
 
 class SJVacancy(Vacancy):
+    """Добавляет поле платформы, с которой пришла вакансия"""
     def __init__(self, vacancy_name: str, salary_from: int, salary_to: int, vacancy_currency: str, vacancy_skills: str,
                  vacancy_duties: str, vacancy_url: str):
         super().__init__(vacancy_name, salary_from, salary_to, vacancy_currency, vacancy_skills, vacancy_duties,
