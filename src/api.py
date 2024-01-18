@@ -9,12 +9,14 @@ load_dotenv()
 
 
 class API(ABC):
+    """Класс взамиодействия с API"""
     @abstractmethod
     def get_vacancies(self) -> list[dict]:
         pass
 
 
 class HHApi(API):
+    """Класс взаимодейстия с HH"""
     def __init__(self, query: str):
         self.query = query
         self.params = {
@@ -32,6 +34,7 @@ class HHApi(API):
 
 
 class SJApi(API):
+    """Класс взаимодейстия с SJ"""
 
     def __init__(self, query: str):
         self.query = query

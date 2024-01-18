@@ -2,6 +2,7 @@ from src.vacancies import Vacancy, SJVacancy, HHVacancy
 
 
 def hh_vacancies_list(vacancies: list[dict]):
+    """Создает экземпляр класса Vacancy, принимая данные от НН по заданным полям"""
     vacancies_list = []
     for vacancy in vacancies:
         example_vacancy = HHVacancy(
@@ -18,6 +19,7 @@ def hh_vacancies_list(vacancies: list[dict]):
 
 
 def sj_vacancies_list(vacancies: list[dict]):
+    """Создает экземпляр класса Vacancy, принимая данные от SJ по заданным полям"""
     vacancies_list = []
     for vacancy in vacancies:
         example_vacancy = SJVacancy(
@@ -34,6 +36,7 @@ def sj_vacancies_list(vacancies: list[dict]):
 
 
 def sort_vacancies_by_salary(vacancies: list[Vacancy], min_salary=0):
+    """Фильтрует вакансии по заданной пользователем минимальной зарплате в рублях"""
     sorted_vacancies = []
     for vacancy in vacancies:
         if vacancy.salary_from >= min_salary and vacancy.vacancy_currency == 'RUR' or vacancy.vacancy_currency == 'rub':
@@ -42,6 +45,7 @@ def sort_vacancies_by_salary(vacancies: list[Vacancy], min_salary=0):
 
 
 def validate_platform_input():
+    """Валидирует выбор пользователем платформы"""
     while True:
         platform = ''
         platform_query = int(input("Выберите платформу для поиска вакансии:\n"
@@ -65,6 +69,7 @@ def validate_platform_input():
 
 
 def validate_salary_input():
+    """Валидирует ввод ползователем минмальной зарплаты"""
     while True:
         salary = 0
         salary_query = input("Введите минимальную желаемую ЗП: ")
@@ -81,6 +86,7 @@ def validate_salary_input():
 
 
 def filter_vacancies_by_platform(vacancies, platform):
+    """Фильтрует вакансии по выбранной пользователем платформе"""
     filtered_vacancies = []
     if platform:
         for vacancy in vacancies:
@@ -92,6 +98,7 @@ def filter_vacancies_by_platform(vacancies, platform):
 
 
 def vacancy_presentation(vacancies):
+    """Выводит конечный результат пользователю"""
     while True:
         number = input("Сколько вывести на экран?\n"
                        "Введите целое число: ")
